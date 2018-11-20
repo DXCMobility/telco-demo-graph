@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="\js\graph.js"></script>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+        
+        .container {
+            /* The image used */
+            background-image: url("./img/world-map-hd.jpg");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .div0 {
+            position: absolute;
+            background-image: url("./img/icons/green-radio-tower-512.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: 165px;
+            left: 155px;
+            width: 40px;
+            height: 40px;
+            border: 0px solid #73AD21;
+            padding: 5px;
+        }
+        
+        .div1 {
+            position: absolute;
+            background-image: url("./img/icons/green-radio-tower-512.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: 75px;
+            left: 400px;
+            width: 40px;
+            height: 40px;
+            border: 0px solid #73AD21;
+            padding: 5px;
+        }
+        
+        .div2 {
+            position: absolute;
+            background-image: url("./img/icons/green-radio-tower-512.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: 390px;
+            left: 280px;
+            width: 40px;
+            height: 40px;
+            border: 0px solid #73AD21;
+            padding: 5px;
+        }
+        
+        .div3 {
+            position: absolute;
+            background-image: url("./img/icons/green-radio-tower-512.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: 300px;
+            left: 560px;
+            width: 40px;
+            height: 40px;
+            border: 0px solid #73AD21;
+            padding: 5px;
+        }
+        
+        .div4 {
+            position: absolute;
+            background-image: url("./img/icons/green-radio-tower-512.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: 280px;
+            left: 755px;
+            width: 40px;
+            height: 40px;
+            border: 0px solid #73AD21;
+            padding: 5px;
+        }
+        
+        .div5 {
+            position: absolute;
+            background-image: url("./img/icons/green-radio-tower-512.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: 150px;
+            left: 755px;
+            width: 40px;
+            height: 40px;
+            border: 0px solid #73AD21;
+            padding: 5px;
+        }
+        
+        .div6 {
+            position: absolute;
+            background-image: url("./img/icons/green-radio-tower-512.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: 450px;
+            left: 950px;
+            width: 40px;
+            height: 40px;
+            border: 0px solid #73AD21;
+            padding: 5px;
+        }
+        
+        .div7 {
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+        /* Glow animation */
+        
+        .glow {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border: none;
+            box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
+            border-radius: 50%;
+            cursor: pointer;
+            -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+        
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+        
+        @-webkit-keyframes pulse {
+            to {
+                box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);
+            }
+        }
+        
+        @-moz-keyframes pulse {
+            to {
+                box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);
+            }
+        }
+        
+        @-ms-keyframes pulse {
+            to {
+                box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);
+            }
+        }
+        
+        @keyframes pulse {
+            to {
+                box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);
+            }
+        }
+        /* Glow animation */
+    </style>
+</head>
+
+<body>
+    <div id="container" class="container" onclick="showCoords(event)" style="position: relative"> 
+        
+           
+        <div id="div0" class="div0" onclick="div0(event)">
+        </div>
+
+       <div id="div1" class="div1" onclick="div1(event)">
+        </div> 
+
+        <div id="div2" class="div2" onclick="div2(event)">
+        </div> 
+
+        <div id="div3" class="div3" onclick="div3(event)">
+        </div>
+
+        <div id="div4" class="div4" onclick="div4(event)">
+        </div>
+
+        <div id="div5" class="div5" onclick="div5(event)">
+        </div>
+
+        <div id="div6" class="div6" onclick="div6(event)">
+            
+        </div>     
+      
+        
+        <div id="div7" onclick="div7(event)">
+            <svg height="550" width="1200">
+                <ellipse cx="600" cy="270" rx="550" ry="270" style="fill:black;opacity:0.3;" />
+                Sorry, your browser does not support inline SVG.  
+            </svg>
+          
+        </div>
+        <div id="myDiv" style="position: absolute;
+        right: 0;
+        bottom: 0;">
+                
+        </div>
+        
+        
+    </div>    
+
+    <script>
+        var count = 0;
+        var normalTower = 0;
+        var warningTower = 0;
+        var criticalTower = 0;
+        window.setInterval(loopOverDivs, 2000);
+        window.setInterval(simulateNormal, 3000);
+        window.setInterval(simulateWarning, 5000);
+        window.setInterval(simulateCritical, 10000);
+                
+        addStyle(document.getElementById("div0"));
+
+        function showCoords(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            var coords = "X coords: " + x + ", Y coords: " + y;
+            console.log(coords);
+        }
+
+        function div0(event) {
+            console.log("USA");
+            country = "USA"
+            url = "https://raw.githubusercontent.com/valliramkumar/POC/master/tower1_call_success_rate.csv";
+            plotGraph(url,country);
+        }
+
+        function div1(event) {
+            console.log("Europe");
+            country = "Europe"
+            url = "https://raw.githubusercontent.com/valliramkumar/POC/master/tower2_call_success_rate.csv "
+            plotGraph(url,country);
+        }
+
+        function div2(event) {
+            console.log("Brazil");
+            country = "Brazil"
+            url = "https://raw.githubusercontent.com/valliramkumar/POC/master/tower3_call_success_rate.csv "
+            plotGraph(url,country);
+        }
+
+        function div3(event) {
+            console.log("Africa");
+            country = "Africa"
+            url = "https://raw.githubusercontent.com/valliramkumar/POC/master/tower4_call_success_rate.csv "
+            plotGraph(url,country);
+        }
+
+        function div4(event) {
+            console.log("India");
+            country = "India"
+            url = "https://raw.githubusercontent.com/valliramkumar/POC/master/tower5_call_success_rate.csv "
+            plotGraph(url,country);
+        }
+
+        function div5(event) {
+            console.log("Russia");
+            country = "Russia"
+            url = "https://raw.githubusercontent.com/valliramkumar/POC/master/tower6_call_success_rate.csv "
+            plotGraph(url,country);
+        }
+
+        function div6(event) {
+            console.log("Australia");
+            country = "Australia"
+            url = "https://raw.githubusercontent.com/valliramkumar/POC/master/tower7_call_success_rate.csv "
+            plotGraph(url,country);
+        }
+        
+        function div7(event) {
+            console.log("Sri Lanka");
+            country = "Sri Lanka"
+            url = "https://raw.githubusercontent.com/valliramkumar/POC/master/tower8_call_success_rate.csv "
+            plotGraph(url,country);
+        }
+
+        function loopOverDivs() {
+            var funcName = "div" + count;
+            if (count != 0) {
+                removeStyle(document.getElementById("div" + (count - 1)));
+            } else {
+                removeStyle(document.getElementById("div0"));
+                removeStyle(document.getElementById("div6"));
+            }
+            window[funcName](null);
+            count++;
+
+            if (count == 7) {
+                count = 0;
+            }
+            addStyle(document.getElementById(funcName));
+        }
+
+        function addStyle(element) {
+            element.classList.add("glow");
+        };
+
+        function removeStyle(element) {
+            element.classList.remove("glow");
+        };
+        
+        function simulateNormal() {
+            normalTower = getRandomInt();
+            var div = document.getElementById("div"+normalTower);
+            div.style.backgroundImage = "url('./img/icons/green-radio-tower-512.png')";
+        }
+        
+        function simulateWarning() {
+            warningTower = getRandomInt();
+            var div = document.getElementById("div"+warningTower);
+            div.style.backgroundImage = "url('./img/icons/yellow-radio-tower-512.png')";
+        }
+        
+        function simulateCritical() {
+            criticalTower = getRandomInt();
+            var div = document.getElementById("div"+criticalTower);
+            div.style.backgroundImage = "url('./img/icons/red-radio-tower-512.png')";
+        }
+        
+        function getRandomInt() {
+            var min = 0;
+            var max = 7;
+            return Math.floor(Math.random() * (max - min)) + min;
+        };
+    </script>
+</body>
+
+</html>
